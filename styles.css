@@ -37,7 +37,7 @@
 
 a {
   text-decoration: none;
-  outline: none;
+  /*outline: none;*/
 }
 
 p {
@@ -84,7 +84,7 @@ button {
   background: none;
   padding: 0;
   margin: 0;
-  outline: none;
+  /*outline: none;*/
 }
 
 button {
@@ -246,6 +246,17 @@ fieldset legend {
 
 .menu__link:hover {
   text-decoration: underline;
+}
+
+.skiplink {
+  position: absolute;
+  top: -200px;
+  left: 2px;
+  transition: top 0.2s;
+}
+
+.skiplink:focus {
+  top: 20px;
 }
 
 @media (max-width: 900px) {
@@ -567,7 +578,7 @@ fieldset legend {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
-  outline: none;
+  /*outline: none;*/
 }
 
 .product-card__left {
@@ -1087,4 +1098,9 @@ fieldset legend {
   margin-left: 4px;
   margin-right: 4px;
   margin-bottom: 8px;
+}
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
 }
