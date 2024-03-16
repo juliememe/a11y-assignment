@@ -827,6 +827,7 @@ fieldset legend {
   width: 40px;
   text-align: center;
   color: var(--text-color-primary);
+  height: 100%;
 }
 
 .input-quantity__field:focus-visible {
