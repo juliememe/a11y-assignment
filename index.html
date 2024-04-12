@@ -9,9 +9,9 @@
 	</head>
 	<body>
 			<header class="header">
-				<a class="skiplink" href="#skipLinkTarget">Go to product</a>
+				<a class="skiplink" href="#skipLinkTarget">Go to main content</a>
 				<div class="container header__container">
-					<nav class="header__menu-main" aria-label="Primary">
+					<nav class="header__menu-main" aria-label="Menu">
 						<ul class="menu">
 							<li class="menu__item">
 								<a class="menu__link" href="#">Women</a>
@@ -46,26 +46,26 @@
 
 			<main class="page-content">
 				<div class="container">
-					<nav aria-label="Breadcrumb">
-						<ul class="breadcrumbs">
+					<nav aria-label="Breadcrumb" >
+						<ol class="breadcrumbs" aria-label="Breadcrumb navigation">
 							<li class="breadcrumbs__item">
 								<a class="breadcrumbs__link" href="#">Home</a>
 							</li>
 							<li class="breadcrumbs__item">
 								<a class="breadcrumbs__link" href="#">Women</a>
 							</li>
-							<li class="breadcrumbs__item breadcrumbs__item_active" aria-current="page">
-								<span class="breadcrumbs__current" >White unisex t-shirt</span>
-							</li>														
-						</ul>
+							<li class="breadcrumbs__item breadcrumbs__item_active" >
+								<a class="breadcrumbs__link breadcrumbs__current" aria-current="page" href="">White unisex t-shirt</a>
+							</li>
+						</ol>
 					</nav>
 
-					<div class="product-card" id="skipLinkTarget">
+					<section class="product-card" id="skipLinkTarget" aria-labelledby="productName">
 						<div class="product-card__right">
 							<h1 class="product-card__title" id="productName">White unisex t-shirt</h1>
 							<p class="product-card__price">EUR 40</p>
 							<p class="product-card__infolabel">Tax included</p>
-							<form class="product-card__form" action="#">
+							<form class="product-card__form" action="#" method="post" name="orderForm" aria-label="Order">
 								<div class="product-card__parameter">
 									<label for="size" class="product-card__label">Size</label>
 									<select id="size" class="product-size">
@@ -75,102 +75,112 @@
 										<option value="l">L</option>
 										<option value="xl">XL</option>
 									</select>
-									<button class="size-guide-link modal-target">Size Guide</button>
-									<div class="modal">
+									<button type="button" class="size-guide-link modal-target">Size Guide</button>
+
+									<div class="modal" role="dialog" aria-labelledby="sizeGuide" aria-describedby="guideDesc" aria-modal="true">
 										<div class="modal-backdrop">
 											<div class="modal-body size-guide">
-												<h2 class="heading-2">Size guide</h2>
-												<p>Some description about the sizes</p>
-												<table class="size-guide__table">
+												<h3 class="heading-2" id="sizeGuide">Size guide</h3>
+												<p id="guidDesc">Some description about the sizes</p>
+												<table class="size-guide__table" aria-labelledby="tableCaption">
+													<caption class="visually-hidden" id="tableCaption">Compare sizes</caption>
+													<thead>
 													<tr>
-														<td>EU</td>
-														<td>US</td>
+														<th scope="col" id="col-h-1">EU</th>
+														<th scope="col" id="col-h-2">US</th>
+													</tr>
+													</thead>
+													<tbody >
+													<tr>
+														<td headers='col-h-1'>36</td>
+														<td headers='col-h-2'>8</td>
 													</tr>
 													<tr>
-														<td>36</td>
-														<td>8</td>
+														<td headers='col-h-1'>38</td>
+														<td headers='col-h-2'>9</td>
 													</tr>
 													<tr>
-														<td>38</td>
-														<td>9</td>
+														<td headers='col-h-1'>40</td>
+														<td headers='col-h-2'>10</td>
 													</tr>
 													<tr>
-														<td>40</td>
-														<td>10</td>
+														<td headers='col-h-1'>42</td>
+														<td headers='col-h-2'>11</td>
 													</tr>
-													<tr>
-														<td>42</td>
-														<td>11</td>
-													</tr>
+													</tbody>
 												</table>
+												<button type="button" id="close-modal">Close</button>
 											</div>
 										</div>
 
 									</div>
 								</div>
 								<fieldset class="product-card__parameter">
-									<legend class="product-card__label">Color<span aria-hidden="true"> - <span id="productColorValue">White</span></span></legend>
-									<ul class="input-group">
+									<legend class="product-card__label">Color - <span id="productColorValue">White</span></legend>
+									<ul class="input-group ">
 										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="White" value="white" checked aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #ffffff; border: 1px #cccccc solid;"></span>
-												</span>
+											<label class="input-radio input-radio__visual input-radio-color" for="product_color_white" tabindex="0">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="White" value="white" aria-label="White"  id="product_color_white" checked>
+													<span class="input-radio-color__sample" title="White" style="background-color: #ffffff; border: 1px #cccccc solid;" ></span>
+												<span class="visually-hidden">White</span>
+
 											</label>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Black" value="black" aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #1a1f29;"></span>
-												</span>
+											<label class="input-radio input-radio__visual input-radio-color" for="product_color_black" tabindex="0">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Black" value="black" aria-label="Black"  id="product_color_black">
+													<span class="input-radio-color__sample"  title="Black" style="background-color: #1a1f29;" ></span>
+												<span class="visually-hidden">Black</span>
+
 											</label>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Gray" value="gray" aria-hidden="true">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #aeaeb0;"></span>
-												</span>
+											<label class="input-radio input-radio__visual input-radio-color" for="product_color_gray" tabindex="0">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Gray" value="gray" aria-label="Gray"  id="product_color_gray" >
+													<span class="input-radio-color__sample"  title="Gray" style="background-color: #aeaeb0;" ></span>
+												<span class="visually-hidden">Gray</span>
+											</label>
+										</li>
+
+
+										<li class="input-group__item">
+											<label class="input-radio input-radio__visual input-radio-color" for="product_color_purple" tabindex="0">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Purple latte" value="purple" aria-label="Purple"  id="product_color_purple">
+													<span class="input-radio-color__sample" title="Purple" style="background-color: #ba9be5;" ></span>
+												<span class="visually-hidden">Purple</span>
+
 											</label>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Purple latte" value="purple">
-												<span class="input-radio__visual input-radio-color">
-													<span class="input-radio-color__sample" style="background-color: #ba9be5;"></span>
-												</span>
-											</label>
-										</li>
-										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 1" value="color1" disabled aria-hidden="true">
+											<label class="input-radio" for="product_color1">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 1" value="color1"  disabled aria-hidden="true" id="product_color1">
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #e9a0a7;"></span>
 												</span>
 											</label>
 										</li>
 										<li class="input-group__item">
-											<label class="input-radio">
-												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 2" value="color2" disabled aria-hidden="true">
+											<label class="input-radio" for="product_color2">
+												<input class="input-radio__input" type="radio" name="product_color" data-name-display="Color 2" value="color2"  disabled aria-hidden="true" id="product_color2">
 												<span class="input-radio__visual input-radio-color">
 													<span class="input-radio-color__sample" style="background-color: #f8cab1;"></span>
 												</span>
 											</label>
 										</li>
-									</ul>										
+									</ul>
 								</fieldset>
-								<div class="product-card__parameter product-card__parameter_last">
-									<span class="product-card__label">Quantity</span>
+								<fieldset class="product-card__parameter product-card__parameter_last">
+									<legend class="product-card__label">Quantity</legend>
 									<div class="input-quantity">
-										<button type="button" class="input-quantity__btn" data-action="decrease">&minus;</button>
+										<button type="button" class="input-quantity__btn" data-action="decrease" aria-label="Decrease">&minus;</button>
 										<label for="productQuantity">
-										<input type="number" class="input-quantity__field" id="productQuantity" name="product_quantity" value="1">
+										<input type="number" class="input-quantity__field" id="productQuantity" name="productQuantity" value="1" aria-labelledby="quantity">
+											<span class="visually-hidden" id="quantity">Quantity</span>
 										</label>
-										<button type="button" class="input-quantity__btn" data-action="increase">&plus;</button>
+										<button type="button" class="input-quantity__btn" data-action="increase" aria-label="Increase">&plus;</button>
 									</div>
-								</div>
+								</fieldset>
+
 								<button type="button" class="btn btn_secondary btn_hollow">Add to cart</button>
 								<button type="submit" class="btn btn_primary">Buy it now</button>
 							</form>
@@ -178,20 +188,19 @@
 								<p>A unisex basic garment with a loose fit. Light and comfortable to your skin.</p>
 								<p>Certification of cotton - GOTS</p>
 							</div>
-						</div>						
-						<div class="product-card__left" aria-labelledby="Product info" >
-							<h2 class="visually-hidden">Product info</h2>
+						</div>
+						<section class="product-card__left" aria-labelledby="ProductInfo" >
+							<h2 class="visually-hidden" id="ProductInfo">Product info</h2>
 							<a class="product-card__photo-big" href="#">
-								<img class="product-card__photo-big-picture" src="images/photo1.jpg" srcset="images/photo1_x2.jpg 2x" alt="Photo of t-shirt.">
+								<img class="product-card__photo-big-picture" src="images/photo1.jpg" srcset="images/photo1_x2.jpg 2x" alt="Model in white t-shirt.">
 							</a>
 							<div class="accordion" id="accordionGroup">
-
 
 								<div class="accordion__item">
 									<h3 id="productInfo1">
 										<button type="button" aria-expanded="false" aria-controls="productInfo1Body"  class="accordion__item-title">Sizing & Fit</button>
 									</h3>
-									<div class="accordion__item-body" id="productInfo1Body" aria-labelledby="productInfo1" role="region">Olga is 175cm, she is wearing a size S.</div>
+									<div class="accordion__item-body" id="productInfo1Body" aria-labelledby="productInfo1" role="region" aria-live="polite">Olga is 175cm, she is wearing a size S.</div>
 								</div>
 
 
@@ -199,25 +208,25 @@
 									<h3 id="productInfo2">
 										<button type="button" aria-expanded="false" aria-controls="productInfoBody2" class="accordion__item-title">Composition & Care</button>
 									</h3>
-									<div class="accordion__item-body" id="productInfoBody2" aria-labelledby="productInfo2" role="region">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+									<div class="accordion__item-body" id="productInfoBody2" aria-labelledby="productInfo2" role="region" aria-live="polite">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
 								</div>
 
 								<div class="accordion__item">
 									<h3 id="productInfo3">
 										<button type="button" aria-expanded="false" aria-controls="productInfo3Body" class="accordion__item-title">Delivery & Returns</button>
 									</h3>
-									<div class="accordion__item-body" id="productInfo3Body" aria-labelledby="productInfo3" role="region">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
+									<div class="accordion__item-body" id="productInfo3Body" aria-labelledby="productInfo3" role="region" aria-live="polite">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
 								</div>
 							</div>
-						</div>
-					</div>
+						</section>
+					</section>
 
-					<div class="section" aria-labelledby="labelProductsSimilar">
+					<section class="section" aria-labelledby="labelProductsSimilar" >
 						<h2 class="heading-2 products-similar__heading-2" id="labelProductsSimilar">Video about the product</h2>
 						<div class="product-video_container">
-							<iframe width="1166" height="500" src="https://www.youtube.com/embed/9XDvpm7sLVg?si=clINFdoVQuk20KPS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<iframe width="1166" height="500" src="https://www.youtube.com/embed/9XDvpm7sLVg?si=clINFdoVQuk20KPS" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen aria-hidden="true" tabindex="-1"></iframe>
 						</div>
-					</div>
+					</section>
 
 					<div class="section products-similar">
 						<h2 class="heading-2 products-similar__heading-2">You may also like</h2>
@@ -228,21 +237,29 @@
 								</a>
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
 								<div class="colors-palette products-grid__item-colors-palette">
-									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
+									<div class="colors-palette__item" >
+										<span class="colors-palette__sample" style="background-color: #C88252;" >
 										</span>
+										<p class="visually-hidden">Orange</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
+										<span class="colors-palette__sample" style="background-color: #e04acc;">
 										</span>
+										<p class="visually-hidden">Pink</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
+										<span class="colors-palette__sample" style="background-color: #292fad;" >
 										</span>
+										<p class="visually-hidden">Blue</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
+										<span class="colors-palette__sample" style="background-color: #68da00;" >
 										</span>
+										<p class="visually-hidden">Green</p>
+
 									</div>
 								</div>
 								<p class="products-grid__item-price">
@@ -256,16 +273,21 @@
 								<div class="products-grid__item-name"><a href="#">Very long product name for testing purposes</a></div>
 								<div class="colors-palette products-grid__item-colors-palette">
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: red;" aria-label="red">
+										<span class="colors-palette__sample" style="background-color: red;" >
 										</span>
+										<p class="visually-hidden">Red</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: green;" aria-label="green">
+										<span class="colors-palette__sample" style="background-color: green;" >
 										</span>
+										<p class="visually-hidden">Green</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: blue;" aria-label="blue">
+										<span class="colors-palette__sample" style="background-color: blue;" >
 										</span>
+										<p class="visually-hidden">Blue</p>
 									</div>
 								</div>
 								<p class="products-grid__item-price">
@@ -282,20 +304,28 @@
 								<div class="products-grid__item-name"><a href="#">Product name</a></div>
 								<div class="colors-palette products-grid__item-colors-palette">
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #C88252;" aria-label="orange">
+										<span class="colors-palette__sample" style="background-color: #C88252;" >
 										</span>
+										<p class="visually-hidden">Orange</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #e04acc;" aria-label="pink">
+										<span class="colors-palette__sample" style="background-color: #e04acc;" >
 										</span>
+										<p class="visually-hidden">Pink</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #292fad;" aria-label="blue">
+										<span class="colors-palette__sample" style="background-color: #292fad;" >
 										</span>
+										<p class="visually-hidden">Blue</p>
+
 									</div>
 									<div class="colors-palette__item">
-										<span class="colors-palette__sample" style="background-color: #68da00;" aria-label="green">
+										<span class="colors-palette__sample" style="background-color: #68da00;" >
 										</span>
+										<p class="visually-hidden">Green</p>
+
 									</div>
 								</div>
 								<p class="products-grid__item-price">
@@ -303,7 +333,7 @@
 								</p>
 							</div>
 
-						</div>						
+						</div>
 					</div>
 				</div>
 			</main>
@@ -311,33 +341,35 @@
 			<footer class="footer">
 				<div class="container footer__container">
 					<div class="footer__columns">
-						<h2 class="visually-hidden">More information</h2>
-						<section class="footer__col">
-							<h3 class="footer__heading">About</h3>
+						<h2 class="visually-hidden">Useful links</h2>
+						<section class="footer__col" aria-labelledby="about">
+							<h3 class="footer__heading" id="about">About</h3>
 							<div class="footer__address">
 								<p>Susparsa Store</p>
 								<p>Geneva, Switzerland</p>
 								<ul class="social" aria-label="Our social accounts">
 									<li class="social__item">
-										<a class="social__link" href="#" target="_blank" aria-label="Facebook" aria-describedby="newWindowText">
+										<a class="social__link" href="#" target="_blank"  aria-labelledby="facebook newWindowText">
 											<svg class="social__logo" width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path fill-rule="evenodd" clip-rule="evenodd" d="M9.02694 9.9817H6.42882V19.5H2.49245V9.9817H0.6203V6.63659H2.49245V4.47193C2.49245 2.92396 3.22776 0.5 6.46386 0.5L9.37967 0.512199V3.7592H7.26406C6.91704 3.7592 6.42908 3.93258 6.42908 4.671V6.63971H9.37084L9.02694 9.9817Z" fill="#5E626B"/>
 											</svg>
+											<span class="visually-hidden" id="facebook">Facebook</span>
 										</a>
-									</li>							
+									</li>
 									<li class="social__item">
-										<a class="social__link" href="#" target="_blank" aria-label="Instagram" aria-describedby="newWindowText">
+										<a class="social__link" href="#" target="_blank" aria-labelledby="instagram newWindowText">
 											<svg class="social__logo" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M14.7071 0.5C17.3502 0.5 19.5 2.65013 19.5 5.29293V14.7071C19.5 17.3502 17.3502 19.5 14.7071 19.5H5.29293C2.65013 19.5 0.5 17.3502 0.5 14.7071V5.29293C0.5 2.65013 2.65013 0.5 5.29293 0.5H14.7071ZM14.7071 2.56779H5.29293C3.7903 2.56779 2.56779 3.7903 2.56779 5.29293V14.7071C2.56779 16.2097 3.7903 17.4326 5.29293 17.4326H14.7071C16.2097 17.4326 17.4326 16.21 17.4326 14.7071V5.29293C17.4326 3.7903 16.21 2.56779 14.7071 2.56779ZM10 5.10678C12.6984 5.10678 14.8936 7.30195 14.8936 10C14.8936 12.698 12.698 14.8936 10 14.8936C7.30195 14.8936 5.10678 12.6984 5.10678 10C5.10678 7.30195 7.30195 5.10678 10 5.10678ZM10 7.17456C8.44247 7.17456 7.17421 8.44212 7.17421 9.99965C7.17421 11.5579 8.44247 12.8258 10 12.8258C11.5582 12.8258 12.8254 11.5579 12.8254 9.99965C12.8254 8.44247 11.5579 7.17456 10 7.17456ZM15.0509 3.80297C15.6892 3.80297 16.2086 4.32238 16.2086 4.96073C16.2086 5.59909 15.6892 6.1185 15.0509 6.1185C14.4122 6.1185 13.8928 5.59909 13.8928 4.96073C13.8928 4.32238 14.4122 3.80297 15.0509 3.80297Z" fill="#5E626B"/>
 											</svg>
 										</a>
+										<span class="visually-hidden" id="instagram">Instagram</span>
 									</li>
 								</ul>
-								<span class="visually-hidden" id="newWindowText">Will be open in a new tab</span>
+								<span class="visually-hidden" id="newWindowText">Opens in a new tab</span>
 							</div>
 						</section>
-						<section class="footer__col">
-							<h3 class="footer__heading">Company</h3>
+						<section class="footer__col" aria-labelledby="company">
+							<h3 class="footer__heading" id="company">Company</h3>
 							<nav aria-label="Footer primary">
 								<ul class="footer__list">
 									<li class="footer__list-item">
@@ -346,20 +378,20 @@
 									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Men</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Kids</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">About Us</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Our Materials</a>
 									</li>
-								</ul>								
+								</ul>
 							</nav>
 						</section>
-						<section class="footer__col">
-							<h3 class="footer__heading">Useful links</h3>
+						<section class="footer__col" aria-labelledby="links">
+							<h3 class="footer__heading" id="links">Footer links navigation</h3>
 							<div>
 								<ul class="footer__list">
 									<li class="footer__list-item">
@@ -368,34 +400,34 @@
 									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Shipping Policy</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Return & Refund Policy</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Terms of Service</a>
 									</li>
-									<li class="footer__list-item">							
+									<li class="footer__list-item">
 										<a class="footer__list-link" href="#">Contact Us</a>
 									</li>
-								</ul>									
+								</ul>
 							</div>
 						</section>
-						<section class="footer__col">
-							<h3 class="footer__heading">Subscribe</h3>
-							<form class="form" action="#">
+						<section class="footer__col" aria-labelledby="subscribe">
+							<h3 class="footer__heading" id="subscribe">Subscribe</h3>
+							<form class="form" action="#" method="post" name="subscriptionForm" aria-label="Subscribe">
 								<div class="form__input-group">
 									<label for="email">
 
-								<input class="input" type="email" name="email" id="email" placeholder="Email">
+								<input class="input" type="email" name="email" id="email" placeholder="Email" autocomplete="on" >
+										<span class="visually-hidden">Email</span>
 									</label>
-								<button type="button" class="btn btn_primary">Subscribe</button>
+								<button type="submit" class="btn btn_primary">Subscribe</button>
 								</div>
 								<div class="form__input-group">
 									<label for="agree">
 									<input class="checkbox" type="checkbox" name="agree" id="agree"> I agree to give you all my data
 									</label>
 								</div>
-
 							</form>
 						</section>
 					</div>

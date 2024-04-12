@@ -23,21 +23,23 @@
 }
 
 :root {
-  --text-color-primary: #717b90;
-  --text-color-light: #5e626b;
-  --link-color-primary: #b4bac4;
+  --text-color-primary: #4F5569;
+  --text-color-light: #565961;
+  --link-color-primary: #56595D;
   --border-color-primary: #1a1f29;
-  --border-color-light: #cccccc;
+  --border-color-light: #949494;
   --brand-blue: #171c8f;
 }
 
 * {
   box-sizing: border-box;
+  outline-width: 10px;
+
 }
 
 a {
   text-decoration: none;
-  /*outline: none;*/
+  outline-offset: 5px;
 }
 
 p {
@@ -84,7 +86,10 @@ button {
   background: none;
   padding: 0;
   margin: 0;
-  /*outline: none;*/
+  outline-offset: 10px;
+  outline-width: 3px;
+
+
 }
 
 button {
@@ -178,6 +183,15 @@ fieldset legend {
   box-sizing: border-box;
   border: 1px solid var(--border-color-light);
   padding: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+}
+.input-group__item {
+  display: flex;
+  flex-direction: row;
 }
 
 .checkbox {
@@ -716,6 +730,7 @@ fieldset legend {
   width: 100%;
   max-width: 300px;
   height: 50px;
+  padding: 0 10px;
 }
 
 .size-guide-link {
@@ -723,6 +738,10 @@ fieldset legend {
   margin-top: 10px;
   padding: 10px 0;
   text-decoration: underline;
+  font-size: 14px;
+  /*font-size: 18px;*/
+  /*outline-offset: 5px;*/
+
 }
 
 .modal {
@@ -770,7 +789,6 @@ fieldset legend {
 }
 
 
-
 .product-card__infolabel {
   font-size: 16px;
   line-height: 1.4;
@@ -813,6 +831,7 @@ fieldset legend {
 
 .input-quantity__btn:hover {
   outline: 1px var(--border-color-primary) solid;
+  outline-offset: 2px;
   z-index: 1;
   color: var(--text-color-primary);
 }
