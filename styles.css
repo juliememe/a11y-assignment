@@ -290,14 +290,6 @@ fieldset legend {
 }
 
 @media (max-width: 768px) {
-  .header__menu-main {
-    display: none;
-  }
-
-  .header__menu-secondary {
-    display: none;
-  }
-
   .header__container {
     justify-content: center;
   }
