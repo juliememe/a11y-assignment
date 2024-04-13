@@ -23,11 +23,11 @@
 }
 
 :root {
-  --text-color-primary: #4F5569;
-  --text-color-light: #565961;
-  --link-color-primary: #56595D;
+  --text-color-primary: #353949;
+  --text-color-light: #42434b;
+  --link-color-primary: #424548;
   --border-color-primary: #1a1f29;
-  --border-color-light: #949494;
+  --border-color-light: #8a8989;
   --brand-blue: #171c8f;
 }
 
@@ -309,6 +309,7 @@ fieldset legend {
 
 .breadcrumbs__item {
   font-size: 0;
+  color: var(--link-color-primary);
 }
 
 .breadcrumbs__item::after {
@@ -341,7 +342,7 @@ fieldset legend {
 .breadcrumbs__current {
   display: inline-block;
   font-size: 12px;
-  color: #74767B;
+  color: #6b6e72;
 }
 
 .footer {
